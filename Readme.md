@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eileen Zheng - Engineering Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --text-primary: #1a1a1a;
+            --text-secondary: #6b7280;
+            --accent: #2563eb;
+            --accent-hover: #1d4ed8;
+            --border: #e5e7eb;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 6rem 0;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 0.875rem 2rem;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .cta-button:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px var(--shadow);
+        }
+
+        /* About Section */
+        #about {
+            background: var(--bg-secondary);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Projects Section */
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-bottom: 3rem;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px var(--shadow);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            font-weight: 700;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-subtitle {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tag {
+            padding: 0.375rem 0.875rem;
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .project-highlights {
+            margin-top: 2rem;
+        }
+
+        .project-highlights h4 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .project-highlights ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .project-highlights li {
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .project-highlights li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* Skills Section */
+        #skills {
+            background: var(--bg-secondary);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 4px var(--shadow);
+        }
+
+        .skill-category h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category li {
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
+        }
+
+        /* Contact Section */
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            padding: 1rem 2rem;
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-link:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-primary);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        footer p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.25rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            section {
+                padding: 4rem 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .project-image {
+                height: 250px;
+                font-size: 2rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">Eileen Zheng</a>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div>
+                <h1>Hi, I'm Eileen Zheng</h1>
+                <p class="subtitle">Engineering Student & Maker</p>
+                <p>I design and build interactive systems that bring ideas to life. From concept to prototype, I love tackling complex engineering challenges through hands-on design and iteration.</p>
+                <a href="#projects" class="cta-button">View My Work</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <p class="section-subtitle">Engineering through design thinking</p>
+            <div class="about-content">
+                <p>I'm an engineering student passionate about creating interactive experiences through electronics and design. My work spans the full product development cycle—from initial problem definition to CAD modeling, prototyping, and final assembly.</p>
+                <p>I believe in learning by doing and iterating rapidly to refine solutions. Whether it's programming microcontrollers, designing enclosures, or troubleshooting hardware, I approach each challenge with curiosity and determination.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Project</h2>
+            <p class="section-subtitle">Interactive systems and prototypes</p>
+
+            <div class="project-card">
+                <div class="project-image">ARCADIUM</div>
+                <div class="project-content">
+                    <h3 class="project-title">Arcadium</h3>
+                    <p class="project-subtitle">Cornerstone of Engineering 1 - Final Project</p>
+                    <p class="project-description">
+                        A portable, arcade-style reaction game built with the Raspberry Pi Pico. Arcadium addresses the need for simple, affordable, hands-on entertainment that engages users through electronics. The project features a circular LED array for gameplay, integrated LCD display for scoring, and a unique candy dispenser reward system—all housed in a custom laser-cut wood enclosure with acrylic viewing window.
+                    </p>
+
+                    <div class="project-tags">
+                        <span class="tag">Raspberry Pi Pico</span>
+                        <span class="tag">MicroPython</span>
+                        <span class="tag">AutoCAD</span>
+                        <span class="tag">Laser Cutting</span>
+                        <span class="tag">Circuit Design</span>
+                        <span class="tag">Prototyping</span>
+                    </div>
+
+                    <div class="project-highlights">
+                        <h4>Key Contributions</h4>
+                        <ul>
+                            <li>Designed and programmed Piano Tiles prototype using MicroPython for initial concept phase</li>
+                            <li>Created custom AutoCAD enclosure designs optimized for component placement and user ergonomics</li>
+                            <li>Engineered LCD display housing for final product integration</li>
+                            <li>Collaborated on LED programming and candy dispenser mechanism troubleshooting</li>
+                            <li>Documented full development process from brainstorming through final showcase</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-highlights">
+                        <h4>Technical Challenges Solved</h4>
+                        <ul>
+                            <li>Optimized wiring layout to minimize height and improve accessibility to buttons</li>
+                            <li>Designed ventilation system for buzzer audio clarity within enclosed space</li>
+                            <li>Solved candy dispensing mechanism with custom servo stabilization piece</li>
+                            <li>Created flexible wood pattern using laser cutting for cylindrical enclosure construction</li>
+                            <li>Managed GPIO pin constraints by rewiring to fit all components on single Raspberry Pi Pico</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-highlights">
+                        <h4>Design Process</h4>
+                        <ul>
+                            <li>Followed complete design thinking methodology from problem definition to solution</li>
+                            <li>Iterated through multiple cardboard prototypes before final wood/acrylic construction</li>
+                            <li>Integrated user feedback to enhance engagement through reward system</li>
+                            <li>Balanced portability, durability, and functionality in final enclosure design</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <p class="section-subtitle">Tools and technologies I work with</p>
+
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming</h3>
+                    <ul>
+                        <li>MicroPython</li>
+                        <li>Python</li>
+                        <li>Embedded Systems</li>
+                        <li>GPIO Control</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>CAD & Design</h3>
+                    <ul>
+                        <li>AutoCAD</li>
+                        <li>Enclosure Design</li>
+                        <li>Laser Cutting</li>
+                        <li>Prototyping</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Electronics</h3>
+                    <ul>
+                        <li>Raspberry Pi Pico</li>
+                        <li>Circuit Design</li>
+                        <li>LCD Displays</li>
+                        <li>LED Control</li>
+                        <li>Servo Motors</li>
+                        <li>Breadboard Prototyping</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Process</h3>
+                    <ul>
+                        <li>Design Thinking</li>
+                        <li>Rapid Prototyping</li>
+                        <li>Troubleshooting</li>
+                        <li>Documentation</li>
+                        <li>Team Collaboration</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">Let's connect and create something amazing</p>
+            <div class="contact-content">
+                <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+                    I'm always interested in new opportunities, collaborations, and conversations about engineering and design. Feel free to reach out!
+                </p>
+                <div class="contact-links">
+                    <a href="mailto:your.email@example.com" class="contact-link">
+                        📧 Email
+                    </a>
+                    <a href="https://linkedin.com/in/yourprofile" class="contact-link" target="_blank">
+                        💼 LinkedIn
+                    </a>
+                    <a href="https://github.com/yourusername" class="contact-link" target="_blank">
+                        💻 GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Eileen Zheng. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
