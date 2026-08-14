@@ -472,6 +472,63 @@
                     </div>
                 </div>
             </div>
+            <div class="project-card">
+                <div class="project-image">CADODILES</div>
+                <div class="project-content">
+                    <h3 class="project-title">CADodiles</h3>
+                    <p class="project-subtitle">Trivia Dispenser — Cornerstone of Engineering 2 Final Project</p>
+                    <p class="project-description">
+                        An interactive STEM trivia game designed for fifth-grade classrooms, built with a team of five over five milestones. The system pairs a Raspberry Pi Zero-driven touchscreen trivia interface with a physical block-dispensing mechanism that rewards correct answers, all housed in a custom-painted laser-cut wood enclosure. The project addressed a real classroom need identified through stakeholder research: an inclusive, standards-aligned STEM game that stays engaging without relying on addictive reward loops.
+                    </p>
+
+                    <div class="project-tags">
+                        <span class="tag">Raspberry Pi Zero</span>
+                        <span class="tag">Python (Kivy)</span>
+                        <span class="tag">SolidWorks</span>
+                        <span class="tag">Laser Cutting</span>
+                        <span class="tag">Servo Motors</span>
+                        <span class="tag">Agile/Scrum</span>
+                        <span class="tag">User Research</span>
+                    </div>
+
+                    <div class="project-highlights">
+                        <h4>Key Contributions</h4>
+                        <ul>
+                            <li>Served as Project Manager for Milestone 2, structuring the team's checklist, task distribution, and meeting cadence</li>
+                            <li>Led market research on existing STEM educational games, identifying key gaps: poor curriculum alignment, limited collaboration/solo-only play, high cost, and no bilingual support — all of which directly shaped the team's design requirements</li>
+                            <li>Contributed original game concept sketches during team ideation and helped narrow concepts using KTPA/KTDA decision matrices</li>
+                            <li>Co-designed the dispenser in SolidWorks/AutoCAD (both interior mechanism and exterior enclosure), then laser-cut and assembled the physical dispenser box</li>
+                            <li>Laser-cut, assembled, and hand-painted the game board alongside the dispenser, contributing hands-on fabrication across both major physical components</li>
+                            <li>Maintained the team's design notebook and milestone documentation throughout the project</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-highlights">
+                        <h4>Technical Challenges Solved</h4>
+                        <ul>
+                            <li><strong>Dispenser mechanism:</strong> Originally designed around a 3D-printed platform jack, but discovered mid-build that it couldn't be scaled down enough to fit inside the dispenser without oversizing the whole enclosure — scrapped the mechanism and redesigned the interior around a simpler rotating wheel instead</li>
+                            <li><strong>Dispenser mechanism:</strong> After switching to the wheel, diagnosed a servo motor limited to 180° of rotation (not the assumed 360°) and revised the control logic to oscillate clockwise/counterclockwise instead of rotating continuously</li>
+                            <li><strong>Dispenser mechanism:</strong> Identified insufficient clearance for the LCD's HDMI cable and extended the enclosure by 4 inches, and added a bottom access door after realizing students had no way to retrieve dispensed reward pieces</li>
+                            <li><strong>Game board:</strong> First laser-cut version left the board misaligned where the base and angled panels met because the CAD didn't account for the plywood's actual thickness; corrected the model and re-cut, using multiple clamps during glue-up to keep every panel flush</li>
+                            <li><strong>Blocks:</strong> Standardized all game piece dimensions (0.5" per unit) against a single reference drawing so blocks, the dispenser opening, and the game board all fit together consistently across separate laser-cut parts</li>
+                            <li><strong>System integration:</strong> Integrated a Raspberry Pi Zero, touchscreen LCD, servo, and LED strip within a single compact enclosure</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-highlights">
+                        <h4>Design Process</h4>
+                        <ul>
+                            <li>Grounded design decisions in a formal problem statement built from direct research with fifth-grade stakeholders and teachers</li>
+                            <li>Evaluated concept alternatives with weighted decision matrices (KTPA/KTDA) against portability, cost, and intuitiveness criteria</li>
+                            <li>Iterated through cardboard prototypes, an intermediate gameboard version, and a final painted wood/acrylic enclosure across five milestones</li>
+                            <li>Rebuilt the dispenser's internal mechanism from scratch mid-project after the initial platform jack design proved unworkable at the required scale</li>
+                            <li>Re-fabricated the game board after the first laser-cut version revealed a design-to-manufacturing gap between CAD and actual material thickness</li>
+                            <li>Coordinated dimensions across three separately-built components (dispenser, board, blocks) so they assembled into one consistent system</li>
+                            <li>Ran the project using sprint-based backlogs, tracking tasks and blockers milestone to milestone</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
