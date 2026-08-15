@@ -506,8 +506,8 @@
                     <div class="project-highlights">
                         <h4>Technical Challenges Solved</h4>
                         <ul>
-                            <li><strong>Dispenser mechanism:</strong> Originally designed around a 3D-printed platform jack, but discovered mid-build that it couldn't be scaled down enough to fit inside the dispenser without oversizing the whole enclosure — scrapped the mechanism and redesigned the interior around a simpler rotating wheel instead</li>
-                            <li><strong>Dispenser mechanism:</strong> After switching to the wheel, diagnosed a servo motor limited to 180° of rotation (not the assumed 360°) and revised the control logic to oscillate clockwise/counterclockwise instead of rotating continuously</li>
+                            <li><strong>Dispenser mechanism:</strong> Originally designed around a 3D-printed platform jack, but discovered mid-build that it couldn't be scaled down enough to fit inside the dispenser without oversizing the whole enclosure — scrapped the mechanism and redesigned the interior around a servo-driven waterwheel instead</li>
+                            <li><strong>Dispenser mechanism:</strong> After switching to the waterwheel, diagnosed the MG90S servo's 180° rotation limit (not the assumed 360°) and revised the control logic to oscillate clockwise/counterclockwise instead of rotating continuously</li>
                             <li><strong>Dispenser mechanism:</strong> Identified insufficient clearance for the LCD's HDMI cable and extended the enclosure by 4 inches, and added a bottom access door after realizing students had no way to retrieve dispensed reward pieces</li>
                             <li><strong>Game board:</strong> First laser-cut version left the board misaligned where the base and angled panels met because the CAD didn't account for the plywood's actual thickness; corrected the model and re-cut, using multiple clamps during glue-up to keep every panel flush</li>
                             <li><strong>Blocks:</strong> Standardized all game piece dimensions (0.5" per unit) against a single reference drawing so blocks, the dispenser opening, and the game board all fit together consistently across separate laser-cut parts</li>
@@ -524,7 +524,18 @@
                             <li>Rebuilt the dispenser's internal mechanism from scratch mid-project after the initial platform jack design proved unworkable at the required scale</li>
                             <li>Re-fabricated the game board after the first laser-cut version revealed a design-to-manufacturing gap between CAD and actual material thickness</li>
                             <li>Coordinated dimensions across three separately-built components (dispenser, board, blocks) so they assembled into one consistent system</li>
+                            <li>Designed the reward mechanism to be fully deterministic (fixed pieces dispensed per correct answer, no randomness) — directly addressing the "addictive/unfair reward loop" gap identified during market research</li>
                             <li>Ran the project using sprint-based backlogs, tracking tasks and blockers milestone to milestone</li>
+                        </ul>
+                    </div>
+                    <div class="project-highlights">
+                        <h4>Results & Validation</h4>
+                        <ul>
+                            <li>Tested the completed prototype live with six groups of actual 5th-grade students at Melrose Leadership Academy — the system's real target users, not just classmates</li>
+                            <li>System powered on and reached playable gameplay in 2–3 minutes with no jamming or failures observed during testing</li>
+                            <li>Passed a formal two-person safety inspection (no sharp edges, no exposed wiring, no choking hazards) prior to student use</li>
+                            <li>Delivered under budget: $86.57 actual cost vs. $119.57 theoretical, using shared Makerspace resources and an already-owned Raspberry Pi</li>
+                            <li>Observed students collaborating, forming informal teams, and voluntarily attempting extra questions — evidence the design met its engagement and collaboration goals</li>
                         </ul>
                     </div>
                 </div>
