@@ -19,7 +19,7 @@
   h2 { font-size:1.6rem; margin-bottom:1.25rem; }
   .gallery { display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:1.5rem; }
   .gallery img { width:100%; height:220px; object-fit:cover; border-radius:10px; }
-  .video-wrapper video { width:100%; max-width:800px; border-radius:10px; }
+  .video-wrapper video { width:100%; max-width:360px; max-height:80vh; border-radius:10px; display:block; }
   ul.detail-list { list-style:none; padding-left:0; }
   ul.detail-list li { padding:0.4rem 0 0.4rem 1.5rem; position:relative; color:#374151; }
   ul.detail-list li::before { content:"→"; position:absolute; left:0; color:#2563eb; font-weight:600; }
@@ -54,8 +54,8 @@
     <div class="container">
       <h2>Demo Video</h2>
       <div class="video-wrapper">
-        <video controls poster="../images/arcadium/poster.jpg">
-          <source src="../videos/arcadium-demo.mp4" type="video/mp4">
+        <video controls poster="../images/arcadium/arcadium-poster.jpg">
+        <source src="../videos/arcadium-demo.mp4" type="video/mp4">
         </video>
       </div>
     </div>
