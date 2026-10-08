@@ -190,6 +190,10 @@
             font-weight: 700;
         }
 
+        a.project-image {
+            text-decoration: none;
+        }
+
         .project-content {
             padding: 2rem;
         }
@@ -256,6 +260,24 @@
             left: 0;
             color: var(--accent);
             font-weight: 600;
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .project-link:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-2px);
         }
 
         /* Skills Section */
@@ -421,12 +443,12 @@
             <p class="section-subtitle">Projects and prototypes</p>
 
             <div class="project-card">
-                <div class="project-image">ARCADIUM</div>
+                <a href="projects/arcadium.html" class="project-image" aria-label="View full Arcadium project">ARCADIUM</a>
                 <div class="project-content">
                     <h3 class="project-title">Arcadium</h3>
                     <p class="project-subtitle">Cornerstone of Engineering 1 - Final Project</p>
                     <p class="project-description">
-                        A portable, arcade-style reaction game built with the Raspberry Pi Pico. Arcadium addresses the need for simple, affordable, hands-on entertainment that engages users through electronics. The project features a circular LED array for gameplay, integrated LCD display for scoring, and a unique candy dispenser reward system—all housed in a custom laser-cut wood enclosure with acrylic viewing window.
+                        A portable reaction game built on the Raspberry Pi Pico. I prototyped the concept in MicroPython, designed the laser-cut enclosure in AutoCAD, and helped bring the LEDs and candy dispenser to life.
                     </p>
 
                     <div class="project-tags">
@@ -438,37 +460,7 @@
                         <span class="tag">Prototyping</span>
                     </div>
 
-                    <div class="project-highlights">
-                        <h4>Key Contributions</h4>
-                        <ul>
-                            <li>Designed and programmed Piano Tiles prototype using MicroPython for initial concept phase</li>
-                            <li>Created custom AutoCAD enclosure designs optimized for component placement and user ergonomics</li>
-                            <li>Engineered LCD display housing for final product integration</li>
-                            <li>Collaborated on LED programming and candy dispenser mechanism troubleshooting</li>
-                            <li>Documented full development process from brainstorming through final showcase</li>
-                        </ul>
-                    </div>
-
-                    <div class="project-highlights">
-                        <h4>Technical Challenges Solved</h4>
-                        <ul>
-                            <li>Optimized wiring layout to minimize height and improve accessibility to buttons</li>
-                            <li>Designed ventilation system for buzzer audio clarity within enclosed space</li>
-                            <li>Solved candy dispensing mechanism with custom servo stabilization piece</li>
-                            <li>Created flexible wood pattern using laser cutting for cylindrical enclosure construction</li>
-                            <li>Managed GPIO pin constraints by rewiring to fit all components on single Raspberry Pi Pico</li>
-                        </ul>
-                    </div>
-
-                    <div class="project-highlights">
-                        <h4>Design Process</h4>
-                        <ul>
-                            <li>Followed complete design thinking methodology from problem definition to solution</li>
-                            <li>Iterated through multiple cardboard prototypes before final wood/acrylic construction</li>
-                            <li>Integrated user feedback to enhance engagement through reward system</li>
-                            <li>Balanced portability, durability, and functionality in final enclosure design</li>
-                        </ul>
-                    </div>
+                    <a href="projects/arcadium.html" class="project-link">View full project &rarr;</a>
                 </div>
             </div>
             <div class="project-card">
