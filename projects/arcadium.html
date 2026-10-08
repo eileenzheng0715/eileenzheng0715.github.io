@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arcadium — Eileen Zheng</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color:#1a1a1a; line-height:1.6; }
+  .container { max-width:900px; margin:0 auto; padding:0 2rem; }
+  nav { padding:1.5rem 0; border-bottom:1px solid #e5e7eb; }
+  nav a { color:#2563eb; text-decoration:none; font-weight:500; }
+  header.project-hero { padding:3rem 0 1rem; }
+  header.project-hero h1 { font-size:2.75rem; margin-bottom:0.5rem; }
+  header.project-hero p { color:#6b7280; font-size:1.2rem; }
+  .project-tags { display:flex; flex-wrap:wrap; gap:0.5rem; margin:1rem 0; }
+  .tag { background:#f8f9fa; border:1px solid #e5e7eb; padding:0.3rem 0.8rem; border-radius:20px; font-size:0.85rem; color:#6b7280; }
+  section { padding:2.5rem 0; }
+  h2 { font-size:1.6rem; margin-bottom:1.25rem; }
+  .gallery { display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:1.5rem; }
+  .gallery img { width:100%; height:220px; object-fit:cover; border-radius:10px; }
+  .video-wrapper video { width:100%; max-width:800px; border-radius:10px; }
+  ul.detail-list { list-style:none; padding-left:0; }
+  ul.detail-list li { padding:0.4rem 0 0.4rem 1.5rem; position:relative; color:#374151; }
+  ul.detail-list li::before { content:"→"; position:absolute; left:0; color:#2563eb; font-weight:600; }
+  .back-link { display:inline-block; margin-top:2rem; color:#2563eb; text-decoration:none; font-weight:500; }
+</style>
+</head>
+<body>
+  <nav><div class="container"><a href="../index.html">&larr; Back to Portfolio</a></div></nav>
+
+  <header class="project-hero">
+    <div class="container">
+      <h1>Arcadium</h1>
+      <p>Cornerstone of Engineering 1 — Final Project</p>
+      <div class="project-tags">
+        <span class="tag">Raspberry Pi Pico</span>
+        <span class="tag">MicroPython</span>
+        <span class="tag">AutoCAD</span>
+        <span class="tag">Laser Cutting</span>
+        <span class="tag">Circuit Design</span>
+        <span class="tag">Prototyping</span>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <div class="container">
+      <p>A portable, arcade-style reaction game built with the Raspberry Pi Pico. Arcadium addresses the need for simple, affordable, hands-on entertainment that engages users through electronics. The project features a circular LED array for gameplay, integrated LCD display for scoring, and a unique candy dispenser reward system—all housed in a custom laser-cut wood enclosure with acrylic viewing window.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>Demo Video</h2>
+      <div class="video-wrapper">
+        <video controls poster="../images/arcadium/poster.jpg">
+          <source src="../videos/arcadium-demo.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>Design Process Photos</h2>
+      <div class="gallery">
+        <img src="../images/arcadium/process-1.jpg" alt="Arcadium design process photo 1">
+        <img src="../images/arcadium/process-2.jpg" alt="Arcadium design process photo 2">
+        <img src="../images/arcadium/process-3.jpg" alt="Arcadium design process photo 3">
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>Key Contributions</h2>
+      <ul class="detail-list">
+        <li>Designed and programmed Piano Tiles prototype using MicroPython for initial concept phase</li>
+        <li>Created custom AutoCAD enclosure designs optimized for component placement and user ergonomics</li>
+        <li>Engineered LCD display housing for final product integration</li>
+        <li>Collaborated on LED programming and candy dispenser mechanism troubleshooting</li>
+        <li>Documented full development process from brainstorming through final showcase</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>Technical Challenges Solved</h2>
+      <ul class="detail-list">
+        <li>Optimized wiring layout to minimize height and improve accessibility to buttons</li>
+        <li>Designed ventilation system for buzzer audio clarity within enclosed space</li>
+        <li>Solved candy dispensing mechanism with custom servo stabilization piece</li>
+        <li>Created flexible wood pattern using laser cutting for cylindrical enclosure construction</li>
+        <li>Managed GPIO pin constraints by rewiring to fit all components on single Raspberry Pi Pico</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>Design Process</h2>
+      <ul class="detail-list">
+        <li>Followed complete design thinking methodology from problem definition to solution</li>
+        <li>Iterated through multiple cardboard prototypes before final wood/acrylic construction</li>
+        <li>Integrated user feedback to enhance engagement through reward system</li>
+        <li>Balanced portability, durability, and functionality in final enclosure design</li>
+      </ul>
+      <a href="../index.html" class="back-link">&larr; Back to all projects</a>
+    </div>
+  </section>
+</body>
+</html>
