@@ -6,7 +6,7 @@
 <title>Arcadium — Eileen Zheng</title>
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color:#1a1a1a; line-height:1.6; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color:#1a1a1a; background:#fff; line-height:1.6; }
   .container { max-width:900px; margin:0 auto; padding:0 2rem; }
   nav { padding:1.5rem 0; border-bottom:1px solid #e5e7eb; }
   nav a { color:#2563eb; text-decoration:none; font-weight:500; }
@@ -17,13 +17,32 @@
   .tag { background:#f8f9fa; border:1px solid #e5e7eb; padding:0.3rem 0.8rem; border-radius:20px; font-size:0.85rem; color:#6b7280; }
   section { padding:2.5rem 0; }
   h2 { font-size:1.6rem; margin-bottom:1.25rem; }
-  .gallery { display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:1.5rem; }
-  .gallery img { width:100%; height:220px; object-fit:cover; border-radius:10px; }
-  .video-wrapper video { width:100%; max-width:360px; max-height:80vh; border-radius:10px; display:block; }
+  .gallery { display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:1.5rem; }
+  .gallery img { width:100%; height:200px; object-fit:cover; border-radius:10px; }
+  .video-wrapper video { width:100%; max-width:360px; max-height:80vh; border-radius:10px; display:block; background:#000; }
+  h3.gallery-title { font-size:1.15rem; margin:2rem 0 1rem; color:#374151; }
+  .gallery figure { margin:0; }
+  .gallery img { cursor:zoom-in; }
+  .gallery img.drawing { object-fit:contain; background:#f8f9fa; border:1px solid #e5e7eb; }
+  .gallery figcaption { font-size:0.85rem; color:#6b7280; margin-top:0.4rem; }
   ul.detail-list { list-style:none; padding-left:0; }
   ul.detail-list li { padding:0.4rem 0 0.4rem 1.5rem; position:relative; color:#374151; }
   ul.detail-list li::before { content:"→"; position:absolute; left:0; color:#2563eb; font-weight:600; }
   .back-link { display:inline-block; margin-top:2rem; color:#2563eb; text-decoration:none; font-weight:500; }
+  .stats { display:grid; grid-template-columns:repeat(auto-fit, minmax(150px, 1fr)); gap:1rem; margin-top:2rem; }
+  .stat { background:#f8f9fa; border:1px solid #e5e7eb; border-radius:10px; padding:1rem 1.25rem; }
+  .stat-value { display:block; font-size:1.75rem; font-weight:700; color:#2563eb; line-height:1.2; }
+  .stat-label { display:block; font-size:0.85rem; color:#6b7280; margin-top:0.25rem; }
+  dialog.lightbox { border:none; padding:0; background:transparent; max-width:92vw; max-height:92vh; margin:auto; }
+  dialog.lightbox::backdrop { background:rgba(0,0,0,0.92); }
+  dialog.lightbox img { display:block; max-width:92vw; max-height:85vh; object-fit:contain; border-radius:8px; background:#fff; }
+  dialog.lightbox p { color:#e5e7eb; text-align:center; margin-top:0.75rem; font-size:0.95rem; }
+  dialog.lightbox button { position:fixed; top:1rem; right:1.25rem; background:none; border:none; color:#fff; font-size:2rem; line-height:1; cursor:pointer; }
+  ol.steps { list-style:none; padding-left:0; counter-reset:step; display:grid; gap:1rem; }
+  ol.steps li { counter-increment:step; position:relative; padding:1rem 1.25rem 1rem 3.5rem; background:#f8f9fa; border:1px solid #e5e7eb; border-radius:10px; color:#374151; }
+  ol.steps li::before { content:counter(step); position:absolute; left:1.1rem; top:1rem; width:1.6rem; height:1.6rem; border-radius:50%; background:#2563eb; color:#fff; font-weight:600; font-size:0.9rem; display:flex; align-items:center; justify-content:center; }
+  ol.steps strong { color:#1a1a1a; }
+  .step-date { color:#6b7280; font-size:0.85rem; }
 </style>
 </head>
 <body>
@@ -47,6 +66,12 @@
   <section>
     <div class="container">
       <p>A portable, arcade-style reaction game built with the Raspberry Pi Pico. Arcadium addresses the need for simple, affordable, hands-on entertainment that engages users through electronics. The project features a circular LED array for gameplay, integrated LCD display for scoring, and a unique candy dispenser reward system—all housed in a custom laser-cut wood enclosure with acrylic viewing window.</p>
+      <div class="stats">
+        <div class="stat"><span class="stat-value">4</span><span class="stat-label">person team</span></div>
+        <div class="stat"><span class="stat-value">6</span><span class="stat-label">game concepts brainstormed</span></div>
+        <div class="stat"><span class="stat-value">4</span><span class="stat-label">working prototypes built</span></div>
+        <div class="stat"><span class="stat-value">38 days</span><span class="stat-label">from brainstorm to final showcase</span></div>
+      </div>
     </div>
   </section>
 
@@ -54,7 +79,7 @@
     <div class="container">
       <h2>Demo Video</h2>
       <div class="video-wrapper">
-        <video controls poster="../images/arcadium/arcadium-poster.jpg">
+        <video controls preload="metadata" poster="../images/arcadium/arcadium-poster.jpg">
         <source src="../videos/arcadium-demo.mp4" type="video/mp4">
         </video>
       </div>
@@ -63,52 +88,178 @@
 
   <section>
     <div class="container">
-      <h2>Design Process Photos</h2>
+      <h2>How Arcadium Came Together</h2>
+      <ol class="steps">
+        <li><strong>Everyone prototyped their own game.</strong> <span class="step-date">Oct 28 – Nov 4</span><br>Our team brainstormed six arcade-style game concepts. Each of the four of us picked one and built a working prototype of it: a flowchart, MicroPython code, an AutoCAD enclosure, and a laser-cut cardboard box. Mine was a Piano Tiles game.</li>
+        <li><strong>We picked one to build.</strong> <span class="step-date">Nov 18</span><br>We compared all four prototypes on functionality, feasibility, and user experience, and chose Dabian&rsquo;s Light Reaction Game as the base for our final product.</li>
+        <li><strong>We turned it into Arcadium.</strong> <span class="step-date">Nov 18 – Dec 5</span><br>Together we scaled up the enclosure, rewired it for reliability, rebuilt it in laser-cut wood with an acrylic window, and added a candy dispenser reward, ready for the final showcase.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>My Role</h2>
+      <h3 class="gallery-title">On the final Arcadium build</h3>
+      <ul class="detail-list">
+        <li>Designed the candy dispenser in AutoCAD</li>
+        <li>Wrote the code for the LCD display</li>
+        <li>Engineered the LCD display housing so the screen sits cleanly in the enclosure</li>
+        <li>Collaborated on LED programming and troubleshot the candy dispenser mechanism with the team</li>
+        <li>Served as team reporter, documenting the full process from brainstorming through the final showcase</li>
+      </ul>
+      <h3 class="gallery-title">On my own concept prototype (Piano Tiles)</h3>
+      <ul class="detail-list">
+        <li>Programmed the game logic in MicroPython: generating sequences, reading button presses, and giving feedback through a buzzer and the LCD</li>
+        <li>Wired the Raspberry Pi Pico on a breadboard with the push buttons, LCD screen, and buzzer</li>
+        <li>Designed an ergonomic enclosure in AutoCAD with the buttons in a row, like Piano Tiles, and laser-cut it from cardboard</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>Process Photos</h2>
+
+      <h3 class="gallery-title">My Concept: Piano Tiles Prototype</h3>
       <div class="gallery">
-        <img src="../images/arcadium/arcadium-process-1.jpeg" alt="AutoCAD drawing of the Arcadium enclosure layout">
-        <img src="../images/arcadium/arcadium-process-2.jpeg" alt="Wiring the Raspberry Pi Pico and breadboard">
-        <img src="../images/arcadium/arcadium-process-3.jpeg" alt="Prototype LED ring for the game">
+          <figure>
+            <img src="../images/arcadium/arcadium-pianotiles-flowchart.jpg" alt="Flowchart of the Piano Tiles game logic" class="drawing" loading="lazy">
+            <figcaption>Game logic flowchart</figcaption>
+          </figure>
+          <figure>
+            <img src="../images/arcadium/arcadium-pianotiles-wiring.jpg" alt="Raspberry Pi Pico wired on a breadboard with push buttons, a buzzer and an LCD screen" loading="lazy">
+            <figcaption>Pico, buttons, buzzer and LCD wiring</figcaption>
+          </figure>
+          <figure>
+            <img src="../images/arcadium/arcadium-pianotiles-cad.jpg" alt="AutoCAD layout of the Piano Tiles enclosure with a screen cutout and a row of button holes" class="drawing" loading="lazy">
+            <figcaption>AutoCAD enclosure layout</figcaption>
+          </figure>
+          <figure>
+            <img src="../images/arcadium/arcadium-pianotiles-prototype.jpg" alt="Laser-cut cardboard Piano Tiles prototype with LCD screen and colored buttons" loading="lazy">
+            <figcaption>Laser-cut cardboard prototype</figcaption>
+          </figure>
+      </div>
+
+      <h3 class="gallery-title">Selected Concept: Dabian&rsquo;s Light Reaction Game</h3>
+      <div class="gallery">
+          <figure>
+            <img src="../images/arcadium/arcadium-process-1.jpeg" alt="AutoCAD drawing of the circular LED ring enclosure with button panel" class="drawing" loading="lazy">
+            <figcaption>Original AutoCAD layout</figcaption>
+          </figure>
+          <figure>
+            <img src="../images/arcadium/arcadium-process-2.jpeg" alt="Breadboard wiring for the LED ring prototype" loading="lazy">
+            <figcaption>Prototype wiring</figcaption>
+          </figure>
+          <figure>
+            <img src="../images/arcadium/arcadium-process-3.jpeg" alt="Cardboard prototype of the circular LED ring with red and green buttons" loading="lazy">
+            <figcaption>Cardboard LED ring prototype</figcaption>
+          </figure>
+          <figure>
+            <img src="../images/arcadium/arcadium-light-prototype-side.jpg" alt="Side view of the cardboard LED ring prototype showing the button housing" loading="lazy">
+            <figcaption>Prototype side view</figcaption>
+          </figure>
+      </div>
+
+      <h3 class="gallery-title">Final Design</h3>
+      <div class="gallery">
+          <figure>
+            <img src="../images/arcadium/arcadium-cad-enclosure.jpg" alt="CAD layout of the final cylindrical enclosure and its flexible wood pattern" class="drawing" loading="lazy">
+            <figcaption>Final enclosure CAD</figcaption>
+          </figure>
+          <figure>
+            <img src="../images/arcadium/arcadium-cad-candy-dispenser.jpg" alt="Laser-cut layout of the candy dispenser panels" class="drawing" loading="lazy">
+            <figcaption>Candy dispenser cut layout</figcaption>
+          </figure>
+          <figure>
+            <img src="../images/arcadium/arcadium-build-wiring.jpg" alt="Wiring the LED ring inside the wood enclosure during assembly" loading="lazy">
+            <figcaption>Wiring the LED ring during assembly</figcaption>
+          </figure>
+      </div>
+
+      <h3 class="gallery-title">Final Product</h3>
+      <div class="gallery">
+          <figure>
+            <img src="../images/arcadium/arcadium-cover.jpg" alt="Finished Arcadium game with laser-cut wood cylinder, LED ring, LCD display and candy dispenser" loading="lazy">
+            <figcaption>Finished Arcadium</figcaption>
+          </figure>
+          <figure>
+            <img src="../images/arcadium/arcadium-final-front.jpg" alt="Front view of Arcadium showing the LED ring and buttons" loading="lazy">
+            <figcaption>Front view</figcaption>
+          </figure>
+          <figure>
+            <img src="../images/arcadium/arcadium-final-acrylic-window.jpg" alt="Top view through the acrylic window showing the Raspberry Pi Pico and wiring inside the LED ring" loading="lazy">
+            <figcaption>Acrylic window showing the electronics</figcaption>
+          </figure>
       </div>
     </div>
   </section>
 
   <section>
     <div class="container">
-      <h2>Key Contributions</h2>
-      <ul class="detail-list">
-        <li>Designed and programmed Piano Tiles prototype using MicroPython for initial concept phase</li>
-        <li>Created custom AutoCAD enclosure designs optimized for component placement and user ergonomics</li>
-        <li>Engineered LCD display housing for final product integration</li>
-        <li>Collaborated on LED programming and candy dispenser mechanism troubleshooting</li>
-        <li>Documented full development process from brainstorming through final showcase</li>
-      </ul>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
       <h2>Technical Challenges Solved</h2>
+      <h3 class="gallery-title">Final Arcadium build (team)</h3>
       <ul class="detail-list">
-        <li>Optimized wiring layout to minimize height and improve accessibility to buttons</li>
-        <li>Designed ventilation system for buzzer audio clarity within enclosed space</li>
-        <li>Solved candy dispensing mechanism with custom servo stabilization piece</li>
-        <li>Created flexible wood pattern using laser cutting for cylindrical enclosure construction</li>
-        <li>Managed GPIO pin constraints by rewiring to fit all components on single Raspberry Pi Pico</li>
+        <li><strong>Candy dispenser:</strong> Candy got stuck at the back, so we added a wood panel that pushes candy forward while leaving room for the dispensing platform to move</li>
+        <li><strong>Servo stability:</strong> The servo shifted as it turned, so we laser-cut a custom bracket that holds it still and lets only the dispensing platform move</li>
+        <li><strong>Curved enclosure:</strong> Created a flexible wood pattern with the laser cutter so flat plywood could bend into the cylinder</li>
+        <li><strong>GPIO pins:</strong> Rewired to fit every component on a single Raspberry Pi Pico</li>
+      </ul>
+      <h3 class="gallery-title">My Piano Tiles prototype</h3>
+      <ul class="detail-list">
+        <li><strong>Wire height:</strong> Wires stuck up too high and blocked the buttons, so I raised the buttons on a mini breadboard and switched to wires that sit flush</li>
+        <li><strong>Muffled buzzer:</strong> Added a vent of small holes above the buzzer so the sound carries through the enclosure</li>
       </ul>
     </div>
   </section>
 
   <section>
     <div class="container">
-      <h2>Design Process</h2>
+      <h2>Results &amp; Peer Feedback</h2>
       <ul class="detail-list">
-        <li>Followed complete design thinking methodology from problem definition to solution</li>
-        <li>Iterated through multiple cardboard prototypes before final wood/acrylic construction</li>
-        <li>Integrated user feedback to enhance engagement through reward system</li>
-        <li>Balanced portability, durability, and functionality in final enclosure design</li>
+        <li>Delivered a portable, arcade-style game that runs entirely on a single Raspberry Pi Pico</li>
+        <li>Larger enclosure solved the component crowding of earlier prototypes while staying small enough to carry</li>
+        <li>Clean wiring layout reduced failure points and improved reliability</li>
+        <li>Rounds, levels, and the candy reward kept players engaged</li>
+        <li>Reinforced wood and acrylic structure made the final build durable</li>
+      </ul>
+      <h3 class="gallery-title">What we'd improve next, from peer feedback</h3>
+      <ul class="detail-list">
+        <li>Reduce button lag for faster response</li>
+        <li>Use a different or second Raspberry Pi so every LED in the ring lights up</li>
+        <li>Print instructions on the side of the enclosure so players can read them before powering on</li>
       </ul>
       <a href="../index.html" class="back-link">&larr; Back to all projects</a>
     </div>
   </section>
+  <dialog class="lightbox" aria-label="Enlarged photo">
+    <button type="button" aria-label="Close">&times;</button>
+    <img alt="">
+    <p></p>
+  </dialog>
+  <script>
+    (function () {
+      var box = document.querySelector('dialog.lightbox');
+      var big = box.querySelector('img');
+      var cap = box.querySelector('p');
+      function open(img) {
+        big.src = img.src;
+        big.alt = img.alt;
+        var fc = img.parentElement.querySelector('figcaption');
+        cap.textContent = fc ? fc.textContent : '';
+        box.showModal();
+      }
+      document.querySelectorAll('.gallery img').forEach(function (img) {
+        img.tabIndex = 0;
+        img.setAttribute('role', 'button');
+        img.addEventListener('click', function () { open(img); });
+        img.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(img); }
+        });
+      });
+      box.querySelector('button').addEventListener('click', function () { box.close(); });
+      box.addEventListener('click', function (e) { if (e.target === box) box.close(); });
+    })();
+  </script>
 </body>
 </html>
