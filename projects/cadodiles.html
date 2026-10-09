@@ -17,13 +17,27 @@
   .tag { background:#f8f9fa; border:1px solid #e5e7eb; padding:0.3rem 0.8rem; border-radius:20px; font-size:0.85rem; color:#6b7280; }
   section { padding:2.5rem 0; }
   h2 { font-size:1.6rem; margin-bottom:1.25rem; }
-  .gallery { display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:1.5rem; }
-  .gallery img { width:100%; height:220px; object-fit:cover; border-radius:10px; }
-  .video-wrapper video { width:100%; max-width:360px; max-height:80vh; border-radius:10px; display:block; }
+  .gallery { display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:1.5rem; }
+  .gallery img { width:100%; height:200px; object-fit:cover; border-radius:10px; }
+  .video-wrapper video { width:100%; max-height:80vh; border-radius:10px; display:block; background:#000; }
+  h3.gallery-title { font-size:1.15rem; margin:2rem 0 1rem; color:#374151; }
+  .gallery figure { margin:0; }
+  .gallery img { cursor:zoom-in; }
+  .gallery img.drawing { object-fit:contain; background:#f8f9fa; border:1px solid #e5e7eb; }
+  .gallery figcaption { font-size:0.85rem; color:#6b7280; margin-top:0.4rem; }
   ul.detail-list { list-style:none; padding-left:0; }
   ul.detail-list li { padding:0.4rem 0 0.4rem 1.5rem; position:relative; color:#374151; }
   ul.detail-list li::before { content:"→"; position:absolute; left:0; color:#2563eb; font-weight:600; }
   .back-link { display:inline-block; margin-top:2rem; color:#2563eb; text-decoration:none; font-weight:500; }
+  .stats { display:grid; grid-template-columns:repeat(auto-fit, minmax(150px, 1fr)); gap:1rem; margin-top:2rem; }
+  .stat { background:#f8f9fa; border:1px solid #e5e7eb; border-radius:10px; padding:1rem 1.25rem; }
+  .stat-value { display:block; font-size:1.75rem; font-weight:700; color:#2563eb; line-height:1.2; }
+  .stat-label { display:block; font-size:0.85rem; color:#6b7280; margin-top:0.25rem; }
+  dialog.lightbox { border:none; padding:0; background:transparent; max-width:92vw; max-height:92vh; margin:auto; }
+  dialog.lightbox::backdrop { background:rgba(0,0,0,0.92); }
+  dialog.lightbox img { display:block; max-width:92vw; max-height:85vh; object-fit:contain; border-radius:8px; background:#fff; }
+  dialog.lightbox p { color:#e5e7eb; text-align:center; margin-top:0.75rem; font-size:0.95rem; }
+  dialog.lightbox button { position:fixed; top:1rem; right:1.25rem; background:none; border:none; color:#fff; font-size:2rem; line-height:1; cursor:pointer; }
 </style>
 </head>
 <body>
@@ -48,16 +62,29 @@
   <section>
     <div class="container">
       <p>An interactive STEM trivia game designed for fifth-grade classrooms, built with a team of five over five milestones. The system pairs a Raspberry Pi Zero-driven touchscreen trivia interface with a physical block-dispensing mechanism that rewards correct answers, all housed in a custom-painted laser-cut wood enclosure. The project addressed a real classroom need identified through stakeholder research: an inclusive, standards-aligned STEM game that stays engaging without relying on addictive reward loops.</p>
+      <div class="stats">
+        <div class="stat"><span class="stat-value">5</span><span class="stat-label">person team</span></div>
+        <div class="stat"><span class="stat-value">5</span><span class="stat-label">milestones</span></div>
+        <div class="stat"><span class="stat-value">$86.57</span><span class="stat-label">final cost, under the $119.57 budget</span></div>
+        <div class="stat"><span class="stat-value">6</span><span class="stat-label">groups of 5th graders tested</span></div>
+      </div>
     </div>
   </section>
 
-  <!-- To add a demo video or photos later, copy the "Demo Video" and
-       "Design Process Photos" sections from arcadium.html and point them at
-       ../videos/cadodiles-demo.mp4 and ../images/cadodiles/... -->
+  <section>
+    <div class="container">
+      <h2>Demo Video</h2>
+      <div class="video-wrapper">
+        <video controls preload="metadata" poster="../images/cadodiles/cadodiles-poster.jpg">
+        <source src="../videos/cadodiles-demo.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </section>
 
   <section>
     <div class="container">
-      <h2>Key Contributions</h2>
+      <h2>My Role</h2>
       <ul class="detail-list">
         <li>Served as Project Manager for Milestone 2, structuring the team's checklist, task distribution, and meeting cadence</li>
         <li>Led market research on existing STEM educational games, identifying key gaps: poor curriculum alignment, limited collaboration/solo-only play, high cost, and no bilingual support — all of which directly shaped the team's design requirements</li>
@@ -66,6 +93,99 @@
         <li>Laser-cut, assembled, and hand-painted the game board alongside the dispenser, contributing hands-on fabrication across both major physical components</li>
         <li>Maintained the team's design notebook and milestone documentation throughout the project</li>
       </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>Design Process</h2>
+      <ul class="detail-list">
+        <li>Grounded design decisions in a formal problem statement built from direct research with fifth-grade stakeholders and teachers</li>
+        <li>Evaluated concept alternatives with weighted decision matrices (KTPA/KTDA) against portability, cost, and intuitiveness criteria</li>
+        <li>Iterated through cardboard prototypes, an intermediate gameboard version, and a final painted wood/acrylic enclosure across five milestones</li>
+        <li>Designed the reward mechanism to be fully deterministic (fixed pieces dispensed per correct answer, no randomness) — directly addressing the "addictive/unfair reward loop" gap identified during market research</li>
+        <li>Ran the project using sprint-based backlogs, tracking tasks and blockers milestone to milestone</li>
+      </ul>
+
+      <h3 class="gallery-title">Cardboard Prototypes</h3>
+      <div class="gallery">
+          <figure>
+            <img src="../images/cadodiles/cadodiles-prototype-1.jpg" alt="Cardboard prototype of the dispenser with labeled LED lights, slanted levels and collection tray" loading="lazy">
+            <figcaption>Dispenser prototype with labeled internals</figcaption>
+          </figure>
+          <figure>
+            <img src="../images/cadodiles/cadodiles-prototype-2.jpg" alt="Paper touchscreen mockup showing the welcome screen with single and multiplayer modes on the cardboard dispenser" loading="lazy">
+            <figcaption>Paper mockup of the touchscreen interface</figcaption>
+          </figure>
+          <figure>
+            <img src="../images/cadodiles/cadodiles-prototype-3.jpg" alt="Top view of the cardboard dispenser box showing the dispenser opening" loading="lazy">
+            <figcaption>Dispenser opening, top view</figcaption>
+          </figure>
+          <figure>
+            <img src="../images/cadodiles/cadodiles-prototype-4.jpg" alt="Cardboard main playing board next to paper sketches of the colored game blocks" loading="lazy">
+            <figcaption>Game board and block shapes</figcaption>
+          </figure>
+      </div>
+
+      <h3 class="gallery-title">CAD &amp; Electronics</h3>
+      <div class="gallery">
+          <figure>
+            <img src="../images/cadodiles/cadodiles-cad-assembly.jpg" alt="SolidWorks assembly drawing of the dispenser box with exploded components" class="drawing" loading="lazy">
+            <figcaption>Dispenser box assembly drawing</figcaption>
+          </figure>
+          <figure>
+            <img src="../images/cadodiles/cadodiles-cad-dispenser.jpg" alt="CAD model of the dispenser enclosure showing the internal waterwheel mechanism" class="drawing" loading="lazy">
+            <figcaption>Dispenser model with waterwheel mechanism</figcaption>
+          </figure>
+          <figure>
+            <img src="../images/cadodiles/cadodiles-cad-playboard.jpg" alt="SolidWorks drawing of the angled playboard" class="drawing" loading="lazy">
+            <figcaption>Playboard drawing</figcaption>
+          </figure>
+          <figure>
+            <img src="../images/cadodiles/cadodiles-wiring-diagram.jpg" alt="Wiring diagram connecting the Raspberry Pi Zero to the servo, buzzer, LED strip and power supply" class="drawing" loading="lazy">
+            <figcaption>Wiring diagram</figcaption>
+          </figure>
+      </div>
+
+      <h3 class="gallery-title">Fabrication</h3>
+      <div class="gallery">
+          <figure>
+            <img src="../images/cadodiles/cadodiles-build-dispenser-box.jpg" alt="Unpainted laser-cut wood dispenser enclosure" loading="lazy">
+            <figcaption>Laser-cut dispenser enclosure</figcaption>
+          </figure>
+          <figure>
+            <img src="../images/cadodiles/cadodiles-build-dispenser-interior.jpg" alt="Open dispenser showing the servo-driven waterwheel and orange reward blocks inside" loading="lazy">
+            <figcaption>Servo-driven waterwheel inside the dispenser</figcaption>
+          </figure>
+          <figure>
+            <img src="../images/cadodiles/cadodiles-build-blocks.jpg" alt="Laser-cut game blocks painted in yellow, orange, purple and pink" loading="lazy">
+            <figcaption>Painted game blocks</figcaption>
+          </figure>
+          <figure>
+            <img src="../images/cadodiles/cadodiles-build-painted-exterior.jpg" alt="Dispenser painted blue with pixel-art clouds and brick blocks" loading="lazy">
+            <figcaption>Hand-painted exterior</figcaption>
+          </figure>
+      </div>
+
+      <h3 class="gallery-title">Final Product</h3>
+      <div class="gallery">
+          <figure>
+            <img src="../images/cadodiles/cadodiles-final-dispenser.jpg" alt="Finished blue CADodiles dispenser with touchscreen running the trivia game" loading="lazy">
+            <figcaption>Finished dispenser with touchscreen</figcaption>
+          </figure>
+          <figure>
+            <img src="../images/cadodiles/cadodiles-final-game-board.jpg" alt="Painted game board lid with the CADodiles crocodile logo" loading="lazy">
+            <figcaption>Game board with CADodiles logo</figcaption>
+          </figure>
+          <figure>
+            <img src="../images/cadodiles/cadodiles-final-gameplay.jpg" alt="Hands placing colored blocks on the game board next to the dispenser touchscreen" loading="lazy">
+            <figcaption>Gameplay in progress</figcaption>
+          </figure>
+          <figure>
+            <img src="../images/cadodiles/cadodiles-final-testing.jpg" alt="Players answering trivia questions on paper beside the dispenser and game board during testing" loading="lazy">
+            <figcaption>Playtesting the full system</figcaption>
+          </figure>
+      </div>
     </div>
   </section>
 
@@ -85,22 +205,6 @@
 
   <section>
     <div class="container">
-      <h2>Design Process</h2>
-      <ul class="detail-list">
-        <li>Grounded design decisions in a formal problem statement built from direct research with fifth-grade stakeholders and teachers</li>
-        <li>Evaluated concept alternatives with weighted decision matrices (KTPA/KTDA) against portability, cost, and intuitiveness criteria</li>
-        <li>Iterated through cardboard prototypes, an intermediate gameboard version, and a final painted wood/acrylic enclosure across five milestones</li>
-        <li>Rebuilt the dispenser's internal mechanism from scratch mid-project after the initial platform jack design proved unworkable at the required scale</li>
-        <li>Re-fabricated the game board after the first laser-cut version revealed a design-to-manufacturing gap between CAD and actual material thickness</li>
-        <li>Coordinated dimensions across three separately-built components (dispenser, board, blocks) so they assembled into one consistent system</li>
-        <li>Designed the reward mechanism to be fully deterministic (fixed pieces dispensed per correct answer, no randomness) — directly addressing the "addictive/unfair reward loop" gap identified during market research</li>
-        <li>Ran the project using sprint-based backlogs, tracking tasks and blockers milestone to milestone</li>
-      </ul>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
       <h2>Results &amp; Validation</h2>
       <ul class="detail-list">
         <li>Tested the completed prototype live with six groups of actual 5th-grade students at Melrose Leadership Academy — the system's real target users, not just classmates</li>
@@ -112,5 +216,35 @@
       <a href="../index.html" class="back-link">&larr; Back to all projects</a>
     </div>
   </section>
+
+  <dialog class="lightbox" aria-label="Enlarged photo">
+    <button type="button" aria-label="Close">&times;</button>
+    <img alt="">
+    <p></p>
+  </dialog>
+  <script>
+    (function () {
+      var box = document.querySelector('dialog.lightbox');
+      var big = box.querySelector('img');
+      var cap = box.querySelector('p');
+      function open(img) {
+        big.src = img.src;
+        big.alt = img.alt;
+        var fc = img.parentElement.querySelector('figcaption');
+        cap.textContent = fc ? fc.textContent : '';
+        box.showModal();
+      }
+      document.querySelectorAll('.gallery img').forEach(function (img) {
+        img.tabIndex = 0;
+        img.setAttribute('role', 'button');
+        img.addEventListener('click', function () { open(img); });
+        img.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(img); }
+        });
+      });
+      box.querySelector('button').addEventListener('click', function () { box.close(); });
+      box.addEventListener('click', function (e) { if (e.target === box) box.close(); });
+    })();
+  </script>
 </body>
 </html>
