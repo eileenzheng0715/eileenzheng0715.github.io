@@ -75,6 +75,23 @@
             color: var(--accent);
         }
 
+        nav a.nav-resume {
+            padding: 0.35rem 0.9rem;
+            border: 1.5px solid var(--accent);
+            border-radius: 6px;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        nav a.nav-resume:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        nav ul {
+            align-items: center;
+        }
+
         /* Container */
         .container {
             max-width: 1200px;
@@ -375,6 +392,10 @@
                 gap: 1rem;
             }
 
+            nav .container {
+                padding: 0 1rem;
+            }
+
             section {
                 padding: 4rem 0;
             }
@@ -390,6 +411,21 @@
 
             .skills-grid {
                 grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav .container {
+                flex-direction: column;
+                gap: 0.6rem;
+            }
+
+            nav ul {
+                gap: 0.9rem;
+            }
+
+            nav a {
+                font-size: 0.9rem;
             }
         }
 
@@ -409,6 +445,7 @@
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><a href="resume/Eileen-Zheng-Resume.pdf" class="nav-resume" target="_blank" rel="noopener">Resume</a></li>
             </ul>
         </div>
     </nav>
@@ -565,6 +602,9 @@
                     </a>
                     <a href="https://github.com/eileenzheng0715" class="contact-link" target="_blank">
                         💻 GitHub
+                    </a>
+                    <a href="resume/Eileen-Zheng-Resume.pdf" class="contact-link" target="_blank" rel="noopener">
+                        📄 Resume
                     </a>
                 </div>
             </div>
